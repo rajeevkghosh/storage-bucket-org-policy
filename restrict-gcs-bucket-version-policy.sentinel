@@ -1,0 +1,73 @@
+#This policy uses the Sentinel tfplan/v2 import to require that
+# all GCE compute instances have all mandatory labels
+
+# Note that the comparison is case-sensitive but also that GCE labels are only
+# allowed to contain lowercase letters, numbers, hypens, and underscores.
+
+# Import tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan/v2" as tfplan
+import "tfplan-functions" as plan
+import "strings"
+import "types"
+
+org_policy = "constraints/storage.publicAccessPrevention"
+
+# Get all Buckets
+allBuckets = plan.find_resources("google_storage_bucket")
+#print(allBuckets)
+
+allOrgConstraints  = filter tfplan.raw.prior_state.values.root_module.resources as _, rc {
+    rc.type is "google_project_organization_policy" 
+}
+
+violations = {}
+for allBuckets as address, rc {
+    versioning = plan.evaluate_attribute(rc, "versioning.0.enabled")
+    is_null = rule { types.type_of(versioning) is "null" }
+    if not is_null {
+        if versioning {
+            num_versions = plan.evaluate_attribute(rc , "lifecycle_rule.0.condition.0.num_newer_versions")
+            if num_versions is null {
+                message = "num_newer_versions can't have null value if versioning is enabled "
+                violations[address] = message
+            }
+        }
+    } 
+}
+
+
+GCP_GCS_VERSIONING = rule { length(violations) is 0 }
+
+#=================================================================================#
+
+vio = {}
+for allOrgConstraints as address, rc {
+    #constraints = plan.evaluate_attribute(rc, "expressions.constraint.constant_value")
+    constraints = plan.evaluate_attribute(rc, "values.constraint")
+
+    print(constraints)
+    is_null = rule { types.type_of(constraints) is "null" }
+    if not is_null {
+
+         if constraints == org_policy {
+         
+         is_enabled = plan.evaluate_attribute(rc, "values.boolean_policy.0.enforced")
+         print(is_enabled)
+         
+         if not is_enabled {
+             vio[address] = rc
+             print("kkkkkk")
+         }
+
+         }
+        
+    } 
+}
+
+
+GCP_GCS_VERSIONING = rule { length(violations) is 0 }
+
+GCP_GCS_NONPUBLIC = rule { length(vio) is 0 }
+# Main rule
+main = rule { GCP_GCS_VERSIONING and GCP_GCS_NONPUBLIC }

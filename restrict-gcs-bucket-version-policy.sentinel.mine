@@ -1,0 +1,47 @@
+#This policy uses the Sentinel tfplan/v2 import to require that
+# all GCE compute instances have all mandatory labels
+
+# Note that the comparison is case-sensitive but also that GCE labels are only
+# allowed to contain lowercase letters, numbers, hypens, and underscores.
+
+# Import tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+import "strings"
+import "types"
+
+# Get all Buckets
+allBuckets = plan.find_resources("google_storage_bucket")
+
+violations = {}
+for allBuckets as address, rc {
+	versioning = rc["change"]["after"]["versioning"][0]
+
+	is_undefined = rule { types.type_of(versioning) is "undefined" }
+
+	if not is_undefined {
+
+		versioning = plan.evaluate_attribute(rc.change.after.versioning[0], "enabled")
+
+		if versioning is true {
+
+			num_versions = plan.evaluate_attribute(rc.change.after.lifecycle_rule[0].condition[0], "num_newer_versions")
+
+			if num_versions is null {
+
+				print(" num_newer_versions can't have null value if versioning is enabled ")
+				violations[address] = rc
+			}
+
+		}
+
+	}
+
+}
+
+# print(violations)
+
+GCP_GCS_VERSIONING = rule { length(violations) is 0 }
+
+# Main rule
+main = rule { GCP_GCS_VERSIONING }

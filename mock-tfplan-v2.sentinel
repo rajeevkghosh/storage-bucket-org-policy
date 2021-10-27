@@ -1,0 +1,809 @@
+terraform_version = "1.0.9"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_storage_bucket.hellobucket": {
+			"address":        "google_storage_bucket.hellobucket",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "hellobucket",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_storage_bucket",
+			"values": {
+				"cors": [],
+				"default_event_based_hold": null,
+				"encryption":               [],
+				"force_destroy":            true,
+				"labels":                   null,
+				"lifecycle_rule": [
+					{
+						"action": [
+							{
+								"storage_class": "",
+								"type":          "Delete",
+							},
+						],
+						"condition": [
+							{
+								"age":                        3,
+								"created_before":             "",
+								"custom_time_before":         "",
+								"days_since_custom_time":     null,
+								"days_since_noncurrent_time": null,
+								"matches_storage_class":      [],
+								"noncurrent_time_before":     "",
+								"num_newer_versions":         null,
+							},
+						],
+					},
+				],
+				"location":         "US",
+				"logging":          [],
+				"name":             "hello-bucket-air",
+				"requester_pays":   null,
+				"retention_policy": [],
+				"storage_class":    "STANDARD",
+				"versioning":       [],
+				"website":          [],
+			},
+		},
+		"google_storage_bucket.rockstar": {
+			"address":        "google_storage_bucket.rockstar",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "rockstar",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_storage_bucket",
+			"values": {
+				"cors": [],
+				"default_event_based_hold": null,
+				"encryption":               [],
+				"force_destroy":            true,
+				"labels":                   null,
+				"lifecycle_rule": [
+					{
+						"action": [
+							{
+								"storage_class": "",
+								"type":          "Delete",
+							},
+						],
+						"condition": [
+							{
+								"age":                        3,
+								"created_before":             "",
+								"custom_time_before":         "",
+								"days_since_custom_time":     null,
+								"days_since_noncurrent_time": null,
+								"matches_storage_class":      [],
+								"noncurrent_time_before":     "",
+								"num_newer_versions":         null,
+							},
+						],
+					},
+				],
+				"location":         "US",
+				"logging":          [],
+				"name":             "rockstar-bucket",
+				"requester_pays":   null,
+				"retention_policy": [],
+				"storage_class":    "STANDARD",
+				"versioning": [
+					{
+						"enabled": true,
+					},
+				],
+				"website": [],
+			},
+		},
+	},
+}
+
+variables = {
+	"access_token": {
+		"name":  "access_token",
+		"value": "REDACTED_SENSITIVE",
+	},
+}
+
+resource_changes = {
+	"google_storage_bucket.hellobucket": {
+		"address": "google_storage_bucket.hellobucket",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cors": [],
+				"default_event_based_hold": null,
+				"encryption":               [],
+				"force_destroy":            true,
+				"labels":                   null,
+				"lifecycle_rule": [
+					{
+						"action": [
+							{
+								"storage_class": "",
+								"type":          "Delete",
+							},
+						],
+						"condition": [
+							{
+								"age":                        3,
+								"created_before":             "",
+								"custom_time_before":         "",
+								"days_since_custom_time":     null,
+								"days_since_noncurrent_time": null,
+								"matches_storage_class":      [],
+								"noncurrent_time_before":     "",
+								"num_newer_versions":         null,
+							},
+						],
+					},
+				],
+				"location":         "US",
+				"logging":          [],
+				"name":             "hello-bucket-air",
+				"requester_pays":   null,
+				"retention_policy": [],
+				"storage_class":    "STANDARD",
+				"versioning":       [],
+				"website":          [],
+			},
+			"after_unknown": {
+				"bucket_policy_only": true,
+				"cors":               [],
+				"encryption":         [],
+				"id":                 true,
+				"lifecycle_rule": [
+					{
+						"action": [
+							{},
+						],
+						"condition": [
+							{
+								"matches_storage_class": [],
+								"with_state":            true,
+							},
+						],
+					},
+				],
+				"logging":                     [],
+				"project":                     true,
+				"retention_policy":            [],
+				"self_link":                   true,
+				"uniform_bucket_level_access": true,
+				"url":        true,
+				"versioning": [],
+				"website":    [],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "hellobucket",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_storage_bucket",
+	},
+	"google_storage_bucket.rockstar": {
+		"address": "google_storage_bucket.rockstar",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cors": [],
+				"default_event_based_hold": null,
+				"encryption":               [],
+				"force_destroy":            true,
+				"labels":                   null,
+				"lifecycle_rule": [
+					{
+						"action": [
+							{
+								"storage_class": "",
+								"type":          "Delete",
+							},
+						],
+						"condition": [
+							{
+								"age":                        3,
+								"created_before":             "",
+								"custom_time_before":         "",
+								"days_since_custom_time":     null,
+								"days_since_noncurrent_time": null,
+								"matches_storage_class":      [],
+								"noncurrent_time_before":     "",
+								"num_newer_versions":         null,
+							},
+						],
+					},
+				],
+				"location":         "US",
+				"logging":          [],
+				"name":             "rockstar-bucket",
+				"requester_pays":   null,
+				"retention_policy": [],
+				"storage_class":    "STANDARD",
+				"versioning": [
+					{
+						"enabled": true,
+					},
+				],
+				"website": [],
+			},
+			"after_unknown": {
+				"bucket_policy_only": true,
+				"cors":               [],
+				"encryption":         [],
+				"id":                 true,
+				"lifecycle_rule": [
+					{
+						"action": [
+							{},
+						],
+						"condition": [
+							{
+								"matches_storage_class": [],
+								"with_state":            true,
+							},
+						],
+					},
+				],
+				"logging":                     [],
+				"project":                     true,
+				"retention_policy":            [],
+				"self_link":                   true,
+				"uniform_bucket_level_access": true,
+				"url": true,
+				"versioning": [
+					{},
+				],
+				"website": [],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "rockstar",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_storage_bucket",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"access_token": {
+						"references": [
+							"var.access_token",
+						],
+					},
+					"project": {
+						"constant_value": "airline1-sabre-wolverine",
+					},
+				},
+				"name": "google",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_storage_bucket.hellobucket",
+					"expressions": {
+						"force_destroy": {
+							"constant_value": true,
+						},
+						"lifecycle_rule": [
+							{
+								"action": [
+									{
+										"type": {
+											"constant_value": "Delete",
+										},
+									},
+								],
+								"condition": [
+									{
+										"age": {
+											"constant_value": 3,
+										},
+									},
+								],
+							},
+						],
+						"location": {
+							"constant_value": "US",
+						},
+						"name": {
+							"constant_value": "hello-bucket-air",
+						},
+					},
+					"mode":                "managed",
+					"name":                "hellobucket",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_storage_bucket",
+				},
+				{
+					"address": "google_storage_bucket.rockstar",
+					"expressions": {
+						"force_destroy": {
+							"constant_value": true,
+						},
+						"lifecycle_rule": [
+							{
+								"action": [
+									{
+										"type": {
+											"constant_value": "Delete",
+										},
+									},
+								],
+								"condition": [
+									{
+										"age": {
+											"constant_value": 3,
+										},
+									},
+								],
+							},
+						],
+						"location": {
+							"constant_value": "US",
+						},
+						"name": {
+							"constant_value": "rockstar-bucket",
+						},
+						"versioning": [
+							{
+								"enabled": {
+									"constant_value": true,
+								},
+							},
+						],
+					},
+					"mode":                "managed",
+					"name":                "rockstar",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_storage_bucket",
+				},
+				{
+					"address": "data.google_project_organization_policy.policy",
+					"expressions": {
+						"constraint": {
+							"constant_value": "constraints/storage.publicAccessPrevention",
+						},
+						"project": {
+							"constant_value": "airline1-sabre-wolverine",
+						},
+					},
+					"mode":                "data",
+					"name":                "policy",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_project_organization_policy",
+				},
+			],
+			"variables": {
+				"access_token": {
+					"description": "access token",
+					"sensitive":   true,
+				},
+			},
+		},
+	},
+	"format_version": "0.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_storage_bucket.hellobucket",
+					"mode":           "managed",
+					"name":           "hellobucket",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"cors":       [],
+						"encryption": [],
+						"lifecycle_rule": [
+							{
+								"action": [
+									{},
+								],
+								"condition": [
+									{
+										"matches_storage_class": [],
+									},
+								],
+							},
+						],
+						"logging":          [],
+						"retention_policy": [],
+						"versioning":       [],
+						"website":          [],
+					},
+					"type": "google_storage_bucket",
+					"values": {
+						"cors": [],
+						"default_event_based_hold": null,
+						"encryption":               [],
+						"force_destroy":            true,
+						"labels":                   null,
+						"lifecycle_rule": [
+							{
+								"action": [
+									{
+										"storage_class": "",
+										"type":          "Delete",
+									},
+								],
+								"condition": [
+									{
+										"age":                        3,
+										"created_before":             "",
+										"custom_time_before":         "",
+										"days_since_custom_time":     null,
+										"days_since_noncurrent_time": null,
+										"matches_storage_class":      [],
+										"noncurrent_time_before":     "",
+										"num_newer_versions":         null,
+									},
+								],
+							},
+						],
+						"location":         "US",
+						"logging":          [],
+						"name":             "hello-bucket-air",
+						"requester_pays":   null,
+						"retention_policy": [],
+						"storage_class":    "STANDARD",
+						"versioning":       [],
+						"website":          [],
+					},
+				},
+				{
+					"address":        "google_storage_bucket.rockstar",
+					"mode":           "managed",
+					"name":           "rockstar",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"cors":       [],
+						"encryption": [],
+						"lifecycle_rule": [
+							{
+								"action": [
+									{},
+								],
+								"condition": [
+									{
+										"matches_storage_class": [],
+									},
+								],
+							},
+						],
+						"logging":          [],
+						"retention_policy": [],
+						"versioning": [
+							{},
+						],
+						"website": [],
+					},
+					"type": "google_storage_bucket",
+					"values": {
+						"cors": [],
+						"default_event_based_hold": null,
+						"encryption":               [],
+						"force_destroy":            true,
+						"labels":                   null,
+						"lifecycle_rule": [
+							{
+								"action": [
+									{
+										"storage_class": "",
+										"type":          "Delete",
+									},
+								],
+								"condition": [
+									{
+										"age":                        3,
+										"created_before":             "",
+										"custom_time_before":         "",
+										"days_since_custom_time":     null,
+										"days_since_noncurrent_time": null,
+										"matches_storage_class":      [],
+										"noncurrent_time_before":     "",
+										"num_newer_versions":         null,
+									},
+								],
+							},
+						],
+						"location":         "US",
+						"logging":          [],
+						"name":             "rockstar-bucket",
+						"requester_pays":   null,
+						"retention_policy": [],
+						"storage_class":    "STANDARD",
+						"versioning": [
+							{
+								"enabled": true,
+							},
+						],
+						"website": [],
+					},
+				},
+			],
+		},
+	},
+	"prior_state": {
+		"format_version":    "0.2",
+		"terraform_version": "1.0.9",
+		"values": {
+			"root_module": {
+				"resources": [
+					{
+						"address":        "data.google_project_organization_policy.policy",
+						"mode":           "data",
+						"name":           "policy",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"boolean_policy": [
+								{},
+							],
+							"list_policy":    [],
+							"restore_policy": [],
+						},
+						"type": "google_project_organization_policy",
+						"values": {
+							"boolean_policy": [
+								{
+									"enforced": false,
+								},
+							],
+							"constraint":     "constraints/storage.publicAccessPrevention",
+							"etag":           "CI6V34sGEKD4+gU=",
+							"id":             "airline1-sabre-wolverine:constraints/storage.publicAccessPrevention",
+							"list_policy":    [],
+							"project":        "airline1-sabre-wolverine",
+							"restore_policy": [],
+							"update_time":    "2021-10-26T09:29:50.012500Z",
+							"version":        0,
+						},
+					},
+				],
+			},
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "google_storage_bucket.hellobucket",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"cors": [],
+					"default_event_based_hold": null,
+					"encryption":               [],
+					"force_destroy":            true,
+					"labels":                   null,
+					"lifecycle_rule": [
+						{
+							"action": [
+								{
+									"storage_class": "",
+									"type":          "Delete",
+								},
+							],
+							"condition": [
+								{
+									"age":                        3,
+									"created_before":             "",
+									"custom_time_before":         "",
+									"days_since_custom_time":     null,
+									"days_since_noncurrent_time": null,
+									"matches_storage_class":      [],
+									"noncurrent_time_before":     "",
+									"num_newer_versions":         null,
+								},
+							],
+						},
+					],
+					"location":         "US",
+					"logging":          [],
+					"name":             "hello-bucket-air",
+					"requester_pays":   null,
+					"retention_policy": [],
+					"storage_class":    "STANDARD",
+					"versioning":       [],
+					"website":          [],
+				},
+				"after_sensitive": {
+					"cors":       [],
+					"encryption": [],
+					"lifecycle_rule": [
+						{
+							"action": [
+								{},
+							],
+							"condition": [
+								{
+									"matches_storage_class": [],
+								},
+							],
+						},
+					],
+					"logging":          [],
+					"retention_policy": [],
+					"versioning":       [],
+					"website":          [],
+				},
+				"after_unknown": {
+					"bucket_policy_only": true,
+					"cors":               [],
+					"encryption":         [],
+					"id":                 true,
+					"lifecycle_rule": [
+						{
+							"action": [
+								{},
+							],
+							"condition": [
+								{
+									"matches_storage_class": [],
+									"with_state":            true,
+								},
+							],
+						},
+					],
+					"logging":                     [],
+					"project":                     true,
+					"retention_policy":            [],
+					"self_link":                   true,
+					"uniform_bucket_level_access": true,
+					"url":        true,
+					"versioning": [],
+					"website":    [],
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "hellobucket",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_storage_bucket",
+		},
+		{
+			"address": "google_storage_bucket.rockstar",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"cors": [],
+					"default_event_based_hold": null,
+					"encryption":               [],
+					"force_destroy":            true,
+					"labels":                   null,
+					"lifecycle_rule": [
+						{
+							"action": [
+								{
+									"storage_class": "",
+									"type":          "Delete",
+								},
+							],
+							"condition": [
+								{
+									"age":                        3,
+									"created_before":             "",
+									"custom_time_before":         "",
+									"days_since_custom_time":     null,
+									"days_since_noncurrent_time": null,
+									"matches_storage_class":      [],
+									"noncurrent_time_before":     "",
+									"num_newer_versions":         null,
+								},
+							],
+						},
+					],
+					"location":         "US",
+					"logging":          [],
+					"name":             "rockstar-bucket",
+					"requester_pays":   null,
+					"retention_policy": [],
+					"storage_class":    "STANDARD",
+					"versioning": [
+						{
+							"enabled": true,
+						},
+					],
+					"website": [],
+				},
+				"after_sensitive": {
+					"cors":       [],
+					"encryption": [],
+					"lifecycle_rule": [
+						{
+							"action": [
+								{},
+							],
+							"condition": [
+								{
+									"matches_storage_class": [],
+								},
+							],
+						},
+					],
+					"logging":          [],
+					"retention_policy": [],
+					"versioning": [
+						{},
+					],
+					"website": [],
+				},
+				"after_unknown": {
+					"bucket_policy_only": true,
+					"cors":               [],
+					"encryption":         [],
+					"id":                 true,
+					"lifecycle_rule": [
+						{
+							"action": [
+								{},
+							],
+							"condition": [
+								{
+									"matches_storage_class": [],
+									"with_state":            true,
+								},
+							],
+						},
+					],
+					"logging":                     [],
+					"project":                     true,
+					"retention_policy":            [],
+					"self_link":                   true,
+					"uniform_bucket_level_access": true,
+					"url": true,
+					"versioning": [
+						{},
+					],
+					"website": [],
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "rockstar",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_storage_bucket",
+		},
+	],
+	"terraform_version": "1.0.9",
+	"variables": {
+		"access_token": {
+			"value": "REDACTED_SENSITIVE",
+		},
+	},
+}
